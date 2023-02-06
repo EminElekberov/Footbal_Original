@@ -1,0 +1,37 @@
+﻿
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+@model Entities.Model.Player
+
+<form method="post" enctype="multipart/form-data">
+    @*<div asp-validation-summary="ModelOnly" style="color:red"></div>*@
+    <div class="mb-3">
+        <label>Image</label>
+        <input type="file" class="form-control" name="Image">
+    </div>
+
+    <div class="mb-3">
+        <label>Name</label>
+        <input type="text" class="form-control" name="Name">
+    </div>
+
+    <div class="mb-3">
+        <label>Player Number</label>
+        <input type="text" class="form-control" name="PlayerNumber">
+    </div>
+    <div class="mb-3">
+        <label>Team</label>
+        <select name="TeamId" class="form-control" style="width:600px;">
+            @foreach (var item in ViewBag.Team)
+            {
+                <option value="@item.Id">@item.Title</option>
+            }
+        </select>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>

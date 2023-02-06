@@ -1,0 +1,55 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@model IList<Entities.Model.Player>
+
+
+@if (TempData["Success"] != null)
+{
+    <div class="alert alert-primary" role="alert">
+        @TempData["Success"]
+    </div>
+}
+<div style="margin-bottom:50px">
+    <a href="/Player/Create" class="btn btn-outline-success" style="width:100%">Add new Player</a>
+</div>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Image</th>
+            <th scope="col">Name</th>
+            <th scope="col">Number</th>
+            <th scope="col">Team Name</th>
+            <th>CRUD</th>
+        </tr>
+    </thead>
+
+    <tbody>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <th scope="row">@item.Id</th>
+                <td>
+                    <img width="200" height="150" src="~/images/banners/@item.Image" alt="Alternate Text" />
+                </td>
+                <td>@item.Name</td>
+                <td>@(item.PlayerNumber)</td>
+                <td>@(item.TeamId)</td>
+
+                <td>
+                    <a href="/Player/Edit/@item.Id" style="color:red"><i class="fas fa-edit"></i></a>
+                    <a href="/Player/Delete/@item.Id" onclick="return confirm('Are you sure')"><i class="fas fa-trash-alt"></i></a>
+                    <br />
+                </td>
+            </tr>
+
+        }
+
+    </tbody>
+</table>
