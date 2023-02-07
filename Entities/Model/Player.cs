@@ -6,6 +6,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web;
 
 namespace Entities.Model
 {
@@ -17,7 +18,7 @@ namespace Entities.Model
         public int PlayerNumber { get; set; }
         public string Image { get; set; }
         [NotMapped]
-        public IFormFile Photo { get; set; }
+        public HttpPostedFileBase ImageFile { get; set; }
         public Team Team { get; set; }
         public int TeamId { get; set; }
     }

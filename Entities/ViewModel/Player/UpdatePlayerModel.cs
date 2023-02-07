@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web;
 
 namespace Entities.ViewModel.Player
 {
@@ -12,7 +13,7 @@ namespace Entities.ViewModel.Player
         public int Id { get; set; }
         public string Name { get; set; }
         public int PlayerNumber { get; set; }
-        public string Image { get; set; }
-        public IFormFile Photo { get; set; }
+        public int TeamId { get; set; }
+
     }
 }

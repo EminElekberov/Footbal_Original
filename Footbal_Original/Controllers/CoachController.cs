@@ -6,6 +6,7 @@ using Entities.ViewModel.Coach;
 using Entities.ViewModel.Team;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Web;
@@ -27,22 +28,23 @@ namespace Footbal_Original.Controllers
         public async Task<ActionResult> Create(AddCoachModel model)
         {
             coachRepository.TAdd(new Entities.Model.Coach { Name=model.Name });
-            return RedirectToAction("/Coach/Index");
+            return RedirectToAction("/Index");
         }
         public async Task<ActionResult> Delete(int id)
         {
             var value = coachRepository.GetById(id);
             if (value != null)
             {
-                var context = new DataContext();
-                context.Coaches.Remove(value);
-                context.SaveChanges();
+                var datacontext = new DataContext();
+                datacontext.Coaches.Attach(value);
+                datacontext.Entry(value).State = EntityState.Deleted;
+                await datacontext.SaveChangesAsync();
             }
             else
             {
                 return HttpNotFound();
             }
-            return View();
+            return RedirectToAction("Index");
         }
         //public async Task<JsonResult> Delete(int id)
         //{

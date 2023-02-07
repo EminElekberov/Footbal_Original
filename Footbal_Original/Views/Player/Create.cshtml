@@ -10,8 +10,9 @@
 <form method="post" enctype="multipart/form-data">
     @*<div asp-validation-summary="ModelOnly" style="color:red"></div>*@
     <div class="mb-3">
+        @Html.LabelFor(model => model.Image, new { @class="control-label col-md-2"})
         <label>Image</label>
-        <input type="file" class="form-control" name="Image">
+        <input type="file" class="form-control" name="ImageFile">
     </div>
 
     <div class="mb-3">

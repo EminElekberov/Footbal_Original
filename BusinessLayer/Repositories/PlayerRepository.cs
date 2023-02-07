@@ -20,7 +20,7 @@ namespace BusinessLayer.Repositories
 
         public Player GetById(int id)
         {
-            throw new NotImplementedException();
+            return _playerDal.GetById(id);  
         }
 
         public List<Player> GetList()

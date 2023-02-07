@@ -93,8 +93,8 @@
     <table class="table table-bordered" style="width:1500px;">
         <thead class="bg-register-image">
             <tr>
-                <th scope="col">ID</th>
                 <th scope="col">Title</th>
+                <th scope="col">Coach</th>
                 <th>Edit/Delete</th>
             </tr>
         </thead>
@@ -104,8 +104,8 @@
             @foreach (var item in Model)
             {
                 <tr>
-                    <th scope="row">@item.Id</th>
                     <td>@Html.Raw(item.Title)</td>
+                    <td>@Html.Raw(item.Coach.Name)</td>
                     <td>
                         <button type="button" class="btn btn-primary btnEdit" data-id="@item.Id" data-bs-toggle="modal" data-bs-target="#editModal">
                             Edit

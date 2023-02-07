@@ -36,11 +36,11 @@
             <tr>
                 <th scope="row">@item.Id</th>
                 <td>
-                    <img width="200" height="150" src="~/images/banners/@item.Image" alt="Alternate Text" />
+                    <img width="200" height="150" src="@Url.Content(item.Image)" alt="Alternate Text" />
                 </td>
                 <td>@item.Name</td>
                 <td>@(item.PlayerNumber)</td>
-                <td>@(item.TeamId)</td>
+                <td>@(item.Team.Title)</td>
 
                 <td>
                     <a href="/Player/Edit/@item.Id" style="color:red"><i class="fas fa-edit"></i></a>
